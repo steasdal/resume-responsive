@@ -98,6 +98,27 @@ p {
 	color: #cf8a05;
 }
 
+.about {
+	padding-bottom: 16px;
+	float: none;
+	width: 100%;
+	text-align: center;
+}
+
+.about a {
+	color: #444;
+	font-size: 0.8em;
+	text-decoration: none;
+	-webkit-transition: all .3s ease-in;
+	-moz-transition: all .3s ease-in;
+	-o-transition: all .3s ease-in;
+	-ms-transition: all .3s ease-in;
+	transition: all .3s ease-in;
+}
+
+.about a:hover {
+	color: #cf8a05;
+}
 
 section {
 	border-top: 1px solid #dedede;
@@ -231,6 +252,10 @@ section:last-child {
     #cv {
         width: 100%;
     }
+	.no-print
+	{
+		display: none !important;
+	}
 }
 
 @-webkit-keyframes reset {
