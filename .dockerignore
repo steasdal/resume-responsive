@@ -1,0 +1,21 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+### Yeoman template
+node_modules/
+*.log
+
+### Directories associated with build
+build/
+output/
+test/
+
+### Node template
+# Logs
+logs
+
+## Directory-based project format:
+.idea/
+
+typings/
+
+Dockerfile
