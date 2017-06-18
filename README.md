@@ -21,6 +21,6 @@ running in the garage.  All we need now is a K8s deployment, service and ingress
 on the frickin' world wide web!  Check out [deploy.yaml](https://github.com/steasdal/resume-responsive/blob/master/deploy.yaml) for
 the naughty details.
 
-Run the deployment and **[BOOM!](http://resume.teasdale.link)**  There it is!
+Run the deployment and **BOOM!**  [There it is!](http://resume.teasdale.link)
 
 
