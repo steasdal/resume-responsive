@@ -2,7 +2,7 @@
 # https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md
 # https://nodesource.com/blog/8-protips-to-start-killing-it-when-dockerizing-node-js/
 
-FROM node:6.11
+FROM node:8.1.2
 MAINTAINER Sam Teasdale
 
 # Install Tini
