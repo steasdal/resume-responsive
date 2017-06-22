@@ -3,7 +3,7 @@ Hey, you've found my resume repo!  Welcome, friend, and allow me to regale you w
 
 -----
 
-It's time to whip up a resume.  What am I gonna' do, write it in Word?  Oh, come now, let's be rational.  Sure, I used to keep a Word resume around and send it out on occasion.  This, however, is the 21st century and I'm certain that we can do better than a static Microsoft Word document.
+It's been a while since I've updated the ol' resume.  The single-page format and early 2000's verbiage are feeling a little dated.  I guess I'd better rebuild it from the ground up.  What am I gonna' do, though, rewrite it in Word?  Oh, come now, let's be rational.  This is the 21st century;  I'm certain that we can do better than a static Microsoft Word document.
 
 Let's take a quick inventory:  I've got a Kubernetes cluster [running on some old hardware in the garage](https://goo.gl/photos/SKRTMvPVZrns4YzW9).  I've got some Node.js chops.  While I wouldn't consider myself a front-end guy, I've spent some time in Angular 2 and at least know what a responsive design looks like.  I bet I could find a responsive HTML resume template and go to town on it.  Let's see what's out there...
 

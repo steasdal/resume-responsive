@@ -1,11 +1,7 @@
 /**
- * Static HTTP Server
- *
- * Create a static file server instance to serve files
- * and folder in the './public' folder
+ * Serve up content from the /content directory
  */
 
-// modules
 var static = require( 'node-static' ),
     port = 8080,
     http = require( 'http' );
