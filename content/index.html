@@ -5,7 +5,7 @@
 
 <meta name="viewport" content="width=device-width"/>
 <meta name="description" content="The Resume of Sam Teasdale."/>
-<meta charset="UTF-8"> 
+<meta charset="UTF-8">
 
 <link type="text/css" rel="stylesheet" href="style.css">
 <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
@@ -20,65 +20,66 @@
 		<div id="headshot" class="quickFade">
 			<img src="headshot.jpg" alt="Mr. Incredible" />
 		</div>
-		
+
 		<div id="name">
 			<h1 class="quickFade delayTwo">Sam Teasdale</h1>
 			<h2 class="quickFade delayThree">Software Engineer</h2>
 		</div>
-		
+
 		<div id="contactDetails" class="quickFade delayFour">
 			<ul>
-				<li>3821 Wyndsong Trail, Lexington, KY</li>
+				<li>3529 Crosstrees Lane</li>
+				<li>Mount Pleasant, SC 29466</li>
 				<li><a href="mailto:samuel.teasdale@gmail.com" target="_blank">samuel.teasdale@gmail.com</a></li>
-				<li><a href="http://resume.teasdale.link">resume.teasdale.link</a></li>
+				<li><a href="https://resume.teasdale.link">resume.teasdale.link</a></li>
 				<li><a href="tel:8593635470">859•363•5470</a></li>
 			</ul>
 		</div>
 		<div class="clear"></div>
 	</div>
-	
+
 	<div id="mainArea" class="quickFade delayFive">
 		<section>
 			<article>
 				<div class="sectionTitle">
 					<h1>Profile</h1>
 				</div>
-				
+
 				<div class="sectionContent">
-					<p>Experienced software engineer and devops practitioner with an eclectic portfolio of successful software development efforts seeking complex problems in need of elegant, thoughtfully designed, easily maintainable and well documented solutions.</p>
+					<p>Experienced software engineer, devops practitioner, and microservice specialist seeking complex problems in need of robust, thoughtfully designed, well documented solutions.</p>
 				</div>
 			</article>
 			<div class="clear"></div>
 		</section>
-		
-		
+
+
 		<section>
 			<div class="sectionTitle">
 				<h1>Experience</h1>
 			</div>
-			
+
 			<div class="sectionContent">
 				<article>
 					<h2>Software Engineer at Appriss</h2>
 					<p class="subDetails">Louisville, KY • October 2015 - Present</p>
-					<p>Member of a large development team rewriting Appriss's signature VINE system using a combination of Node.js and Angular 2. REST API layer implemented with swagger-tools; unit tests in chai & sinon. Attempting Appriss's first Kubernetes deployment.</p>
-					<p>Member of a small development team building an automated notification system for a federal government customer. System composed of over a dozen Java/Spring/Hibernate microservices communicating via a pair of federated RabbitMQ servers, backed by Oracle and Postgres databases, Dockerized and deployed to both local and AWS GovCloud hosts across four environments via Ansible. Logging to Elasticsearch/Logstash/Kibana. Automated testing via Spock/Groovy unit tests.</p>
+					<p>Building a platform to handle email traffic for a major airline customer.  System consists of a pair of Spring Boot services deployed to AWS EKS (with Fargate pods) and working in concert with API Gateway, Lambda, S3, SQS, and SES to scale automatically to handle massive volumes of email traffic.</p>
+					<p>Member of a small development team building an automated notification system for a federal government customer.  System composed of over a dozen Java/Spring/Hibernate microservices coordinated via a pair of federated RabbitMQ servers, backed by Oracle and Postgres databases, Dockerized and deployed to both Appriss and AWS GovCloud hosts via Ansible.  Using Elasticsearch, Logstash, Grafana, Kibana, Prometheus, and ElasticHQ for logging and system monitoring.</p>
+					<p>Briefly contributed to a development effort rewriting Appriss's signature VINE system using Node.js and Angular 2.</p>
 				</article>
-				
+
 				<article>
 					<h2>Software Engineer at Lexmark</h2>
 					<p class="subDetails">Lexington, KY • October 2008 - October 2015</p>
-					<p>As a member of a seven person Agile Java/Groovy development team, built an AWS hosted BPMN workflow designer/engine from a suite of Java/JAX-RS, Grails and Spring Boot web services with a responsive Backbone-based UI.</p>
-					<p>Key contributor on several of Lexmark’s most commercially successful embedded Java applications working independently and as a member of a medium sized Agile team.</p>
+					<p>As a member of a seven person Agile Java/Groovy development team, built an AWS hosted BPMN workflow designer/engine from a suite of Java/JAX-RS, Grails and Spring Boot web services.</p>
+					<p>Key contributor on several of Lexmark’s most commercially successful embedded Java applications.</p>
 					<p>Created a library of reusable Java/OSGi services used throughout Lexmark's embedded application community and in dozens of successful shipped products.</p>
-					<p>Instrumental in converting an aging legacy build system into a modern Ant/Ivy/Jenkins- based continuous integration pipeline.</p>
 				</article>
 
 				<article>
 					<h2>Software Product Marketing Manager at Lexmark</h2>
 					<p class="subDetails">Lexington, KY • October 2006 - October 2008</p>
 					<p>Developed and executed worldwide software marketing strategy for several of Lexmark's most critical software products.</p>
-					<p>Gathered and analyzed competitive intelligence, managed marketing requirements, defined product pricing, coordinated and trained marketing teams in all worldwide geographies and created marketing messaging documentation.
+					<p>Gathered and analyzed competitive intelligence, managed marketing requirements, defined product pricing, coordinated and trained marketing teams in all worldwide geographies, and created marketing messaging documentation.
 					</p>
 				</article>
 
@@ -93,62 +94,86 @@
 					<h2>Software Engineer at Lexmark</h2>
 					<p class="subDetails">Lexington, KY • March 2003 - July 2004</p>
 					<p>Created C++ "Action Module" DLLs to extend the functionality of the Lexmark Document Distributor platform.</p>
-					<p>Created a SOAP web service action module to interface with Pharos Uniprint and facilitate the creation of Lexmark's first Print Release Solution.
+					<p>Created a SOAP web service Action Module to interface with Pharos Uniprint and facilitate the creation of Lexmark's first Print Release Solution.
 					</p>
 				</article>
 
 				<article>
 					<h2>Software Engineer at YUM! Brands</h2>
 					<p class="subDetails">Lexington, KY • May 2001 - March 2003</p>
-					<p>Reverse engineered "back of house" restaurant applications and replaced them with modern, database-backed Visual Basic applications.</p>
+					<p>Reverse engineered "back of house" restaurant applications and replaced them with Visual Basic applications.</p>
 					<p>Designed and deployed a SQL Server database schema to replace the legacy binary flat-file system in all Long John Silver's restaurants.</p>
 				</article>
 
 				<article>
 					<h2>Software Engineer at Motorola</h2>
 					<p class="subDetails">Plantation, FL • April 2000 - May 2001</p>
-					<p>Designed, developed, documented, deployed and supported several C++ applications to facilitate Motorola's cell phone manufacturing operations in several global locations.</p>
+					<p>Designed, developed, documented, deployed, and supported several C++ applications to facilitate Motorola's cell phone manufacturing operations in several global locations.</p>
 				</article>
 
 				<article>
 					<h2>Programmer/Analyst at the Air Force Agency for Modeling and Simulation</h2>
 					<p class="subDetails">Orlando, FL • December 1997 - April 2000</p>
-					<p>Developed Microsoft Access/Visual Basic applications to automate several interoffice processes.</p>
-					<p>Traveled to several remote sites to monitor and support large scale military simulation exercises.</p>
+					<p>Developed Microsoft Access/Visual Basic applications to automate interoffice processes. </p>
+					<p>Frequently traveled to remote sites to monitor and support large scale military simulation exercises.</p>
 				</article>
 
 			</div>
 			<div class="clear"></div>
 		</section>
-		
-		
+
+
 		<section>
 			<div class="sectionTitle">
-				<h1>Key Skills</h1>
+				<h1>General Skills</h1>
 			</div>
-			
+
 			<div class="sectionContent">
 				<ul class="keySkills">
-					<li>JavaScript/Node.js</li>
-					<li>Chai & Sinon</li>
-					<li>Scrum/Kanban</li>
+					<li>Java/Spring/Hibernate</li>
+					<li>Groovy/Spock</li>
 					<li>Docker</li>
+					<li>Ansible</li>
 					<li>Kubernetes</li>
+					<li>RabbitMQ</li>
 					<li>Elasticsearch</li>
-					<li>Java/Groovy</li>
-					<li>Maven & Gradle</li>
-					<li>Linux, OSX, Windows</li>
+					<li>Prometheus</li>
+					<li>Kibana</li>
+					<li>Grafana</li>
+					<li>PostgreSQL</li>
+					<li>Oracle</li>
+					<li>Atlassian Suite</li>
+					<li>Agile Development</li>
 				</ul>
 			</div>
 			<div class="clear"></div>
 		</section>
-		
-		
+
+
+		<section>
+			<div class="sectionTitle">
+				<h1>AWS Skills</h1>
+			</div>
+
+			<div class="sectionContent">
+				<ul class="keySkills">
+					<li>EC2</li>
+					<li>EKS/Fargate</li>
+					<li>Simple Queue Service</li>
+					<li>Lambda (Node.js)</li>
+					<li>API Gateway</li>
+					<li>DynamoDB</li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</section>
+
+
 		<section>
 			<div class="sectionTitle">
 				<h1>Education</h1>
 			</div>
-			
+
 			<div class="sectionContent">
 				<article>
 					<h2>University of Central Florida, Orlando, FL</h2>
@@ -160,7 +185,7 @@
 
 		<section>
 			<div class="about no-print">
-				<a href="https://github.com/steasdal/resume-responsive">about this resume</a>
+				<a href="https://github.com/steasdal/resume-responsive" target="_blank">about this resume</a>
 			</div>
 		</section>
 
