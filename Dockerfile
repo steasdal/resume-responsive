@@ -17,7 +17,7 @@ RUN mkdir -p /home/node
 WORKDIR /home/node
 
 COPY package.json .
-RUN npm install
+RUN npm install node-static && npm install
 
 COPY app.js .
 COPY /content ./content
