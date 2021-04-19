@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resume
+  labels:
+    app: resume
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resume
+  template:
+    metadata:
+      labels:
+        app: resume
+    spec:
+      containers:
+      - name: resume
+        image: steasdal/resume-responsive:latest
+        imagePullPolicy: Always
+
+        ports:
+        - name: resume-port
+          containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: resume
+  labels:
+    app: resume
+spec:
+  ports:
+  - port: 80
+    targetPort: resume-port
+    protocol: TCP
+    name: resume-port
+  selector:
+    app: resume
+
+---
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: resume-ingress
+spec:
+  rules:
+  - host: resume-dev.teasdale.link
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: resume
+          servicePort: resume-port
