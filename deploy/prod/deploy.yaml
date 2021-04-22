@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: resume
-        image: steasdal/resume-responsive:v1.3
+        image: steasdal/resume-responsive:v1.5
         imagePullPolicy: Always
 
         ports:
