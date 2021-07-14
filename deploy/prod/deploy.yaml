@@ -42,16 +42,19 @@ spec:
 
 ---
 
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: resume-ingress
 spec:
   rules:
-  - host: resume.teasdale.link
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: resume
-          servicePort: resume-port
+    - host: resume.teasdale.dev
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: resume
+                port:
+                  number: 80

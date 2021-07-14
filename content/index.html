@@ -17,6 +17,7 @@
 <body id="top">
 <div id="cv" class="instaFade">
 	<div class="mainDetails">
+
 		<div id="headshot" class="quickFade">
 			<img src="headshot.jpg" alt="Mr. Incredible" />
 		</div>
@@ -31,7 +32,7 @@
 				<li>3529 Crosstrees Lane</li>
 				<li>Mount Pleasant, SC 29466</li>
 				<li><a href="mailto:samuel.teasdale@gmail.com" target="_blank">samuel.teasdale@gmail.com</a></li>
-				<li><a href="https://resume.teasdale.link">resume.teasdale.link</a></li>
+				<li><a href="https://resume.teasdale.dev">resume.teasdale.dev</a></li>
 				<li><a href="tel:8593635470">859•363•5470</a></li>
 			</ul>
 		</div>
@@ -46,7 +47,7 @@
 				</div>
 
 				<div class="sectionContent">
-					<p>Experienced software engineer, devops practitioner, and microservice specialist seeking complex problems in need of robust, thoughtfully designed, well documented solutions.</p>
+					<p>Experienced software engineer, DevOps practitioner, and microservice specialist seeking complex problems in need of robust, thoughtfully designed, well documented solutions.</p>
 				</div>
 			</article>
 			<div class="clear"></div>
@@ -62,7 +63,7 @@
 				<article>
 					<h2>Software Engineer at Appriss</h2>
 					<p class="subDetails">Louisville, KY • October 2015 - Present</p>
-					<p>Building a platform to handle email traffic for a major airline customer.  System consists of a pair of Spring Boot services deployed to AWS EKS (with Fargate pods) and working in concert with API Gateway, Lambda, S3, SQS, and SES to scale automatically to handle massive volumes of email traffic.</p>
+					<p>Built a platform to handle email traffic for a major airline customer.  System consists of a pair of Spring Boot services deployed to AWS EKS working in concert with API Gateway, Lambda, S3, SQS, and SES resources to scale automatically to robustly handle large volumes of email traffic.</p>
 					<p>Member of a small development team building an automated notification system for a federal government customer.  System composed of over a dozen Java/Spring/Hibernate microservices coordinated via a pair of federated RabbitMQ servers, backed by Oracle and Postgres databases, Dockerized and deployed to both Appriss and AWS GovCloud hosts via Ansible.  Using Elasticsearch, Logstash, Grafana, Kibana, Prometheus, and ElasticHQ for logging and system monitoring.</p>
 					<p>Briefly contributed to a development effort rewriting Appriss's signature VINE system using Node.js and Angular 2.</p>
 				</article>
@@ -74,6 +75,8 @@
 					<p>Key contributor on several of Lexmark’s most commercially successful embedded Java applications.</p>
 					<p>Created a library of reusable Java/OSGi services used throughout Lexmark's embedded application community and in dozens of successful shipped products.</p>
 				</article>
+
+				<div class="pagebreak"> </div>
 
 				<article>
 					<h2>Software Product Marketing Manager at Lexmark</h2>
@@ -111,6 +114,8 @@
 					<p>Designed, developed, documented, deployed, and supported several C++ applications to facilitate Motorola's cell phone manufacturing operations in several global locations.</p>
 				</article>
 
+				<div class="pagebreak"> </div>
+
 				<article>
 					<h2>Programmer/Analyst at the Air Force Agency for Modeling and Simulation</h2>
 					<p class="subDetails">Orlando, FL • December 1997 - April 2000</p>
@@ -125,6 +130,57 @@
 
 		<section>
 			<div class="sectionTitle">
+				<h1>Recent Projects</h1>
+			</div>
+
+			<div class="sectionContent">
+
+				<article>
+					<h2>Redis Transition</h2>
+					<p>Several services in current project utilize containerized Redis instances for caching.  Recently
+						completed a transition to AWS ElastiCache Redis instances.  Work involved creating CloudFormation
+						templates to create Subnet Groups, SNS Topics, and Redis ReplicationGroup clusters,
+						Modifying existing services to connect to new Redis cluster URLs over TLS, and cleaning
+						up remnants of previous Redis infrastructure.
+					</p>
+				</article>
+
+				<article>
+					<h2>Argo CD Rollout</h2>
+					<p>Successfully rolled out <a href="https://github.com/argoproj/argo-cd">Argo CD</a> to automate
+						deployment of all services owned by current group.  Deployed Argo CD to dev cluster (managing
+						resources in both dev and prod clusters).  Separated Kustomize files into separate repository.
+						Updated all builds to modify Kustomize deployment files on build success.  Setup Argo CD "Apps"
+						for each service in each environment.
+					</p>
+				</article>
+
+				<article>
+					<h2>Microservice Rewrite</h2>
+					<p>Completely rewrote microservice responsible for communicating with Legacy 3rd party SOAP web
+						service (new microservice communicates with REST web service via client .jar).  Work involved
+						extensive use of Java streams for extracting information from 3rd party client jar objects.
+					</p>
+				</article>
+
+				<article>
+					<h2>Grafana Dashboard</h2>
+					<p>Customer requested a method for viewing AWS SNS CloudWatch metrics for Email Sends, Deliveries,
+						Bounces, and Complaints.  A Grafana instance was deployed to a non-production Kubernetes cluster
+						with EFS for persistent storage, <a href="https://github.com/kubernetes-sigs/external-dns">External DNS</a>
+						to automatically update Route53 resources, and SSL certificates managed by AWS Certificate Manager.
+						Customer is extremely satified with the solution.
+					</p>
+				</article>
+
+			</div>
+			<div class="clear"></div>
+		</section>
+
+		<div class="pagebreak"> </div>
+
+		<section>
+			<div class="sectionTitle">
 				<h1>DevOps Skills</h1>
 			</div>
 
@@ -134,7 +190,7 @@
 					<li>Groovy/Spock</li>
 					<li>Docker</li>
 					<li>Ansible</li>
-					<li>ArgoCD</li>
+					<li>Argo CD</li>
 					<li>Kubernetes</li>
 					<li>RabbitMQ</li>
 					<li>Elasticsearch</li>
@@ -150,7 +206,6 @@
 			<div class="clear"></div>
 		</section>
 
-
 		<section>
 			<div class="sectionTitle">
 				<h1>AWS Skills</h1>
@@ -159,11 +214,13 @@
 			<div class="sectionContent">
 				<ul class="keySkills">
 					<li>EC2</li>
-					<li>EKS/Fargate</li>
+					<li>EKS</li>
+					<li>CloudFormation</li>
+					<li>Lambdas</li>
 					<li>Simple Queue Service</li>
-					<li>Lambda (Node.js)</li>
 					<li>API Gateway</li>
 					<li>DynamoDB</li>
+					<li>Transfer Server</li>
 				</ul>
 			</div>
 			<div class="clear"></div>
@@ -184,11 +241,11 @@
 			<div class="clear"></div>
 		</section>
 
-		<section>
-			<div class="about no-print">
-				<a href="https://github.com/steasdal/resume-responsive" target="_blank">about this resume</a>
-			</div>
-		</section>
+<!--		<section>-->
+<!--			<div class="about no-print">-->
+<!--				<a href="https://github.com/steasdal/resume-responsive" target="_blank">about this resume</a>-->
+<!--			</div>-->
+<!--		</section>-->
 
 	</div>
 </div>

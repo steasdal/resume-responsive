@@ -18,10 +18,8 @@ spec:
       - name: resume
         image: steasdal/resume-responsive:latest-dev
         imagePullPolicy: Always
-
         ports:
-        - name: resume-dev-port
-          containerPort: 8080
+        - containerPort: 8080
 
 ---
 
@@ -32,26 +30,35 @@ metadata:
   labels:
     app: resume-dev
 spec:
+  type: NodePort
   ports:
   - port: 80
-    targetPort: resume-dev-port
+    targetPort: 8080
     protocol: TCP
-    name: resume-dev-port
   selector:
     app: resume-dev
 
 ---
 
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: resume-dev-ingress
+#  annotations:
+#    "kubernetes.io/ingress.class": "kempLB"
+#    "kemp.ax/vsip": "192.168.60.252"
+#    "kemp.ax/vsport": "443"
+#    "kemp.ax/vsprot": "tcp"
+#    "kemp.ax/vsname": "InboundKubernetesVs"
 spec:
   rules:
-  - host: resume-dev.teasdale.link
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: resume-dev
-          servicePort: resume-dev-port
+    - host: resume-dev.teasdale.dev
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: resume-dev
+                port:
+                  number: 80

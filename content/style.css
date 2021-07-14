@@ -30,7 +30,7 @@ p {
 }
 
 .mainDetails {
-	padding: 25px 35px;
+	padding: 5px 35px 25px;
 	border-bottom: 2px solid #2b42ac;
 	background: #ededed;
 }
@@ -44,6 +44,12 @@ p {
 
 #name h2 {
 	font-size: 2em;
+	margin-left: 2px;
+	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+}
+
+#name h3 {
+	font-size: 1.8em;
 	margin-left: 2px;
 	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
 }
@@ -224,7 +230,7 @@ section:last-child {
 
 @media all and (max-width: 480px) {
 	.mainDetails {
-		padding: 15px 15px;
+		padding: 5px 15px 15px;
 	}
 
 	section {
@@ -255,6 +261,10 @@ section:last-child {
 	.no-print
 	{
 		display: none !important;
+	}
+	.pagebreak
+	{
+		page-break-before: always;
 	}
 }
 
