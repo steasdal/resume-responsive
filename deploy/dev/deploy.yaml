@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: resume
-        image: ghcr.io/steasdal/resume-responsive:sha-cc69453
+        image: ghcr.io/steasdal/resume-responsive:sha-758aab3
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
