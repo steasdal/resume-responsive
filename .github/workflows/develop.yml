@@ -19,16 +19,10 @@ jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
     permissions:
-      actions: write
-      checks: write
-      contents: write
+      contents: read
       deployments: write
-      issues: write
       packages: write
-      pull-requests: write
       repository-projects: write
-      security-events: write
-      statuses: write
 
     steps:
       - name: Checkout repository
@@ -61,14 +55,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
-#      - name: Commit changes to deploy/dev/deploy.yaml
-#        run: |
-#          git config user.name github-actions
-#          git config user.email github-actions@github.com
-#          git add .
-#          git commit -m "GitHub Actions updating deploy.yaml"
-#          git push
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
