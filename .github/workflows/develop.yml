@@ -19,7 +19,7 @@ jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       deployments: write
       packages: write
       repository-projects: write
