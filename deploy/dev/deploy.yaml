@@ -16,10 +16,12 @@ spec:
     spec:
       containers:
       - name: resume
-        image: steasdal/resume-responsive:latest-dev
+        image: ghcr.io/steasdal/resume-responsive:sha-04258a7
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
+      imagePullSecrets:
+        - name: ghcrcredential
 
 ---
 
@@ -44,12 +46,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: resume-dev-ingress
-#  annotations:
-#    "kubernetes.io/ingress.class": "kempLB"
-#    "kemp.ax/vsip": "192.168.60.252"
-#    "kemp.ax/vsport": "443"
-#    "kemp.ax/vsprot": "tcp"
-#    "kemp.ax/vsname": "InboundKubernetesVs"
 spec:
   rules:
     - host: resume-dev.teasdale.dev
