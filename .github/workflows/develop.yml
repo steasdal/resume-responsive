@@ -52,7 +52,7 @@ jobs:
       # Using a sed command with a "|" delimeter instead of the usual slash
       # due to the fact that the replacement value itself has slashes in it.
       - name: Update deploy/dev/deploy.yaml
-        run: sed -i -r "s|image:.*|image:${{ steps.meta.outputs.tags }}|" deploy/dev/deploy.yaml
+        run: sed -i -r "s|image:.*|image:\ ${{ steps.meta.outputs.tags }}|" deploy/dev/deploy.yaml
 
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
