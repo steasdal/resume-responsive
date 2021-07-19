@@ -56,6 +56,7 @@ jobs:
 
       - name: Commit changes to deploy/dev/deploy.yaml to trigger automatic deployment
         run: |
+          git remote set-url --push origin https://steasdal:$GITHUB_TOKEN@github.com/steasdal/resume-responsive
           git config --global user.name 'Sam Teasdale'
           git config --global user.email 'samuel.teasdale@gmail.com'
           git commit -am "GitHub Actions updating deploy/dev/deploy.yaml"
