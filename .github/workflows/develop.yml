@@ -42,9 +42,7 @@ jobs:
             type=sha
 
       - name: Update deploy/dev/deploy.yaml
-      - run: |
-          echo Updating deploy/dev/deploy.yaml with image and tag: ${{ steps.meta.outputs.tags }}
-          sed -i -r "s/image:.*/image:${{ steps.meta.outputs.tags }}/" deploy/dev/deploy.yaml
+      - run:  sed -i -r "s/image:.*/image:${{ steps.meta.outputs.tags }}/" deploy/dev/deploy.yaml
 
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
