@@ -22,7 +22,6 @@ jobs:
       contents: write
       deployments: write
       packages: write
-      repository-projects: write
 
     steps:
       - name: Checkout repository
