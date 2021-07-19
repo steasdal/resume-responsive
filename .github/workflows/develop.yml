@@ -54,9 +54,9 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Commit changes to /deploy/dev/deploy.yaml
-        uses: EndBug/add-and-commit@v7
-        with:
-          default_author: github_actions
-          message: 'Your commit message'
-          add: 'deploy/dev/*'
+      - name: Commit changes to deploy/dev/deploy.yaml to trigger automatic deployment
+        run: |
+          git config --global user.name 'Sam Teasdale'
+          git config --global user.email 'samuel.teasdale@gmail.com'
+          git commit -am "GitHub Actions updating deploy/dev/deploy.yaml"
+          git push
