@@ -56,13 +56,8 @@ jobs:
 
       - name: Commit changes to deploy/dev/deploy.yaml
         run: |
-          git remote set-url --push origin https://steasdal:$GITHUB_TOKEN@github.com/steasdal/resume-responsive
-          git config --global user.name 'Sam Teasdale'
-          git config --global user.email 'samuel.teasdale@gmail.com'
-          git commit -am "GitHub Actions updating deploy/dev/deploy.yaml"
-
-      - name: Push changes to deploy/dev/deploy.yaml
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "GitHub Actions updating deploy.yaml"
+          git push
