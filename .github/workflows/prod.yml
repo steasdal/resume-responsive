@@ -39,8 +39,14 @@ jobs:
             type=ref,event=branch
             type=semver,pattern={{version}}
 
+
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+
+
       - name: What is the tag?
-        run: echo "Tag - ${{ steps.meta.outputs.tags }}"
+        run: echo "Tag - ${{ steps.get_version.outputs.VERSION }}"
 
       # Using a sed command with a "|" delimeter instead of the usual slash
       # due to the fact that the replacement value itself has slashes in it.
