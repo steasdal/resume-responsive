@@ -18,9 +18,17 @@ jobs:
       deployments: write
       packages: write
 
+    # Checkout out this repo and ALSO the steasdal/gitops repo
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Checkout gitops repo
+        uses: actions/checkout@v2
+        with:
+          repository: steasdal/gitops
+          path: gitops
+          ref: main
 
       - name: Log in to the ghcr container repository
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -37,11 +45,6 @@ jobs:
           tags: |
             type=sha
 
-      # Using a sed command with a "|" delimeter instead of the usual slash
-      # due to the fact that the replacement value itself has slashes in it.
-      - name: Update deploy/dev/deploy.yaml
-        run: sed -i -r "s|image:.*|image:\ ${{ steps.meta.outputs.tags }}|" deploy/dev/deploy.yaml
-
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
@@ -50,6 +53,11 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+      # Using a sed command with a "|" delimeter instead of the usual slash
+      # due to the fact that the replacement value itself has slashes in it.
+      - name: Update deploy/dev/deploy.yaml
+        run: sed -i -r "s|image:.*|image:\ ${{ steps.meta.outputs.tags }}|" gitops/deploy/dev/deploy.yaml
+
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
@@ -57,3 +65,6 @@ jobs:
           author_email: samuel.teasdale@gmail.com
           message: 'Committing changes to deploy.yaml'
           add: 'deploy/dev/*'
+          cwd: './gitops/'
+
+
