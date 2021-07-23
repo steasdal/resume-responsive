@@ -2,7 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [ develop ]
+    tags:
+      - 'v*'
 
   workflow_dispatch:
 
@@ -35,12 +36,16 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=sha
+            type=ref,event=branch
+            type=semver,pattern={{version}}
+
+      - name: What is the tag?
+        run: echo "Tag - ${{ steps.meta.outputs.tags }}"
 
       # Using a sed command with a "|" delimeter instead of the usual slash
       # due to the fact that the replacement value itself has slashes in it.
-      - name: Update deploy/dev/deploy.yaml
-        run: sed -i -r "s|image:.*|image:\ ${{ steps.meta.outputs.tags }}|" deploy/dev/deploy.yaml
+#      - name: Update deploy/dev/deploy.yaml
+#        run: sed -i -r "s|image:.*|image:\ ${{ steps.meta.outputs.tags }}|" deploy/dev/deploy.yaml
 
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
@@ -50,10 +55,10 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v7
-        with:
-          author_name: Sam Teasdale
-          author_email: samuel.teasdale@gmail.com
-          message: 'Committing changes to deploy.yaml'
-          add: 'deploy/dev/*'
+#      - name: Commit changes
+#        uses: EndBug/add-and-commit@v7
+#        with:
+#          author_name: Sam Teasdale
+#          author_email: samuel.teasdale@gmail.com
+#          message: 'Committing changes to deploy.yaml'
+#          add: 'deploy/dev/*'
