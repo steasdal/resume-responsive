@@ -41,7 +41,7 @@ jobs:
             type=semver,pattern={{version}}
 
       - name: What is the tag?
-        run: echo ${{ steps.meta.outputs.tags }}
+        run: echo "Tag - ${{ steps.meta.outputs.tags }}"
 
       # Using a sed command with a "|" delimeter instead of the usual slash
       # due to the fact that the replacement value itself has slashes in it.
