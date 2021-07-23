@@ -58,8 +58,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: "ghcr.io/steasdal/resume-responsive${{ steps.get_version.outputs.VERSION }}"
 
 #      - name: Commit changes
 #        uses: EndBug/add-and-commit@v7
