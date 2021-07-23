@@ -47,6 +47,13 @@ jobs:
           tags: |
             type=sha
 
+      - name: Get the sha
+        id: get_sha
+        run: echo ::set-output name=SHA::${GITHUB_SHA}
+
+      - name: What is the sha?
+        run: echo "sha - ${{ steps.get_version.outputs.SHA }}"
+
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
