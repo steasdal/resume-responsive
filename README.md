@@ -4,36 +4,43 @@ Hey, you've found my resume repo!  Welcome, friend, and allow me to regale you w
 -----
 
 Way, way back in the day, I used to throw together a resume in Microsoft Word just like most folks.  If I were feeling particularly sassy, 
-I might even save it off as a PDF before sending it out.  When it came time to update the ol' resume, I figured that it was probably time
-to come up with a better way.  These modern times call for modern solutions, right?  Perhaps I could come up with something that puts to
-use a few of the skills that I've acquired over the years.  Let's take a quick inventory:
+I might even save it off as a PDF before sending it out.  One day, when it came time to update the ol' piece of parchment, I figured that 
+it was probably time to come up with a better way.  These modern times call for modern solutions, right?  Perhaps I could come up with 
+something that puts to use a few of the skills that I've acquired over the years.  Let's see what we've got here.
 
+The resume itself is pretty simple.  I found a responsive resume template online, copied it, and modified it to suit my needs.
+It's just a bit of html and responsive CSS.  Nothing too flashy.  You'll find it all in the 
+[/content](https://github.com/steasdal/resume-responsive/tree/master/content) directory.
 
-   * I've got a lil' Kubernetes cluster [sitting right here beside me](https://photos.app.goo.gl/SjD2nX6jQKtTpDpEA)
-   * I've got a wee bit of Node.js experience.
-   * I've got some time to throw together something interesting.
-   
-While I wouldn't exactly consider myself a front-end guy, I've spent some time with Angular 2 and at least know what a responsive 
-design looks like.  I bet I could find a responsive HTML resume template and go to town on it.  Let's see what's out there...
+The resume content is served up by a super simple NodeJS static web server.  Have a look at the
+[app.js](https://github.com/steasdal/resume-responsive/blob/master/app.js) file if you're interested.
 
-Hey, look at that!  It turns out there's a _buttload_ of HTML resume templates out there!  Let's find a good looking example, 
-fill in the deets, throw in a  headshot, adjust a few pertinent bits and pieces.  The [/content](https://github.com/steasdal/resume-responsive/tree/master/content) 
-directory is where you'll find the files that make up the resume itself.
-  
-Now that the template is looking good, let's whip up a little Node.js static web server. 
-See the [app.js](https://github.com/steasdal/resume-responsive/blob/master/app.js) file.
+I'm a Docker guy so, of course, everything is dockerized.  Have a look at the
+[Dockerfile](https://github.com/steasdal/resume-responsive/blob/master/Dockerfile) for the dirty Docker details.
 
-I'm a Docker guy so let's conjure up a [Dockerfile](https://github.com/steasdal/resume-responsive/blob/master/Dockerfile) and wrap everything 
-in a Docker image for portability and easy deployment.  Since this is a public GitHub repo, we can even setup an automated build 
-on the official Docker Hub and host the [resulting Docker image](https://hub.docker.com/r/steasdal/resume-responsive/) out there.  Nice!
+I've got a CI/CD pipeline setup using [GitHub Actions](https://github.com/features/actions).  Commits to the _develop_
+branch or creation of a tagged release will kick off the pipeline which'll do the following:
 
-At this point, we've got a resume wrapped all warm 'n snugly in a Docker image.  We've got a Kubernetes Cluster that we can
-deploy it to.  All we need now is a Kubernetes deployment, service, and ingress and we should be in business.  
-Check out [deploy.yaml](https://github.com/steasdal/resume-responsive/blob/master/deploy.yaml) to see what's up with that.
+   * Check out this repo and another private **gitops** repo
+   * Authenticate against the [ghcr](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) docker registery
+   * Get the git sha or release tag
+   * Update the version placeholder in the [index.html](./content/index.html) file.
+   * Build, tag, and push the docker image to the **ghcr** docker repo
+   * Update a deploy.yaml file in the **gitops** repo (this is a Kubernetes deployment manifest)
+   * Commit changes to the **gitops** repo
 
-All I've gotta' do now is run the deployment and **BOOM!**  [There it is!](https://resume.teasdale.link)
+Once all that is done, we've got a fresh (and freshly tagged) docker image and we've updated some deploy
+files in some private **gitops** repo.  The GitHub Actions files that drive this pipeline process can be found in the 
+[.github/workflows](https://github.com/steasdal/resume-responsive/tree/develop/.github/workflows) directory.
+
+What happens next?  Well, you see, I've got a Kubernetes cluster running on some [ESXi](https://www.vmware.com/products/esxi-and-esx.html) 
+VM's at my house.  On that cluster, I've got [ArgoCD](https://argoproj.github.io/argo-cd/) watching for changes
+to the afore mentioned **gitops** repo.  When ArgoCD sees that a new version of the docker container is available,
+it just automatically deploys it.  Boom.  Just like that.  I've even got a GitHub Webhook setup to let ArgoCD know
+that there are new changes it needs to know about.  Pretty sweet, right?  That's... well, that's about it.  That's 
+the whole thing, really.
 
 -----
 
-Say, that wasn't hard at all.  It _might_ have even been a little bit of fun.  Thanks for stopping by and taking a peek at my resume.  
-Please feel free to message me if you've got any feedback or suggestions.  Ciao!
+Thanks for stopping by and taking a peek at my resume.  I hope you enjoyed perusing at it as much as I enjoyed getting it
+up and running.  Please feel free to message me if you've got any feedback or suggestions.  Cheers!
