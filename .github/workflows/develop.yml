@@ -47,8 +47,12 @@ jobs:
           tags: |
             type=sha
 
-      - name: What is the tag?
-        run: echo "sha - ${{ steps.meta.outputs.tags }}"
+      - name: Set outputs
+        id: vars
+        run: echo "::set-output name=SHORT_SHA::$(git rev-parse --short HEAD)"
+
+      - name: Check outputs
+        run: echo "sha - ${{ steps.vars.outputs.SHORT_SHA }}"
 
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
