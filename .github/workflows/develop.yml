@@ -57,7 +57,7 @@ jobs:
       # We're going to update the version placeholder in index.html with the git sha.  This'll
       # never actually be committed to the git repo - it'll exist only in the docker container.
       - name: update the version
-        run: sed -i -r "s|version:.*|version:\ ${{ steps.vars.outputs.SHORT_SHA }}</a>|" index.html
+        run: sed -i -r "s|version:.*|version:\ ${{ steps.vars.outputs.SHORT_SHA }}</a>|" content/index.html
 
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
