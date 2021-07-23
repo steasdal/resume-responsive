@@ -28,6 +28,8 @@ jobs:
         with:
           repository: steasdal/gitops
           path: gitops
+          ref: main
+          token: ${{ secrets.GHCR_PAT }}
 
       - name: Log in to the ghcr container repository
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
