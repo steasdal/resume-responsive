@@ -64,8 +64,7 @@ jobs:
         with:
           author_name: Sam Teasdale
           author_email: samuel.teasdale@gmail.com
+          branch: main
           message: 'Committing changes to deploy.yaml'
           add: 'resume-responsive/deploy/dev/*'
           cwd: './gitops/'
-
-
