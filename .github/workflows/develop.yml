@@ -57,7 +57,7 @@ jobs:
       # Using a sed command with a "|" delimeter instead of the usual slash
       # due to the fact that the replacement value itself has slashes in it.
       - name: Update deploy/dev/deploy.yaml
-        run: sed -i -r "s|image:.*|image:\ ${{ steps.meta.outputs.tags }}|" gitops/deploy/dev/deploy.yaml
+        run: sed -i -r "s|image:.*|image:\ ${{ steps.meta.outputs.tags }}|" gitops/resume-responsive/deploy/dev/deploy.yaml
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
