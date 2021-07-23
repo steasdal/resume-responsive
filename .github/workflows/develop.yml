@@ -18,8 +18,9 @@ jobs:
       deployments: write
       packages: write
 
-    # Checkout out this repo and ALSO the steasdal/gitops repo
     steps:
+
+      # Checkout out this repo and ALSO the steasdal/gitops repo
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -65,6 +66,6 @@ jobs:
           author_name: Sam Teasdale
           author_email: samuel.teasdale@gmail.com
           branch: main
+          cwd: './gitops/'
           message: 'Committing changes to deploy.yaml'
           add: 'resume-responsive/deploy/dev/*'
-          cwd: './gitops/'
