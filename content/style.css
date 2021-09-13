@@ -30,7 +30,7 @@ p {
 }
 
 .mainDetails {
-	padding: 5px 35px 25px;
+	padding: 25px 35px 25px;
 	border-bottom: 2px solid #2b42ac;
 	background: #ededed;
 }
@@ -73,6 +73,7 @@ p {
 
 #name {
 	float: left;
+	margin: 15px 5px 15px;
 }
 
 #contactDetails {
@@ -182,7 +183,31 @@ section:last-child {
 	margin-bottom: 3px;
 }
 
-@media all and (min-width: 602px) and (max-width: 800px) {
+/*!* Three image containers (use 25% for four, and 50% for two, etc) *!*/
+/*.column {*/
+/*	float: left;*/
+/*	width: 25%;*/
+/*	padding: 5px;*/
+/*}*/
+
+/*!* Clear floats after image containers *!*/
+/*.row::after {*/
+/*	content: "";*/
+/*	clear: both;*/
+/*	display: table;*/
+/*}*/
+
+.row {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.column {
+	flex: 25%;
+	padding: 5px;
+}
+
+@media all and (min-width: 715px) and (max-width: 800px) {
 	#headshot {
 		display: none;
 	}
@@ -194,7 +219,7 @@ section:last-child {
 	}
 }
 
-@media all and (max-width: 601px) {
+@media all and (max-width: 714px) {
 	#cv {
 		width: 95%;
 		margin: 10px auto;
@@ -226,11 +251,19 @@ section:last-child {
 		-webkit-column-count:2;
 		column-count:2;
 	}
+
+	.row {
+		flex-flow: column wrap;
+	}
+
+	.column {
+		flex: 100%;
+	}
 }
 
 @media all and (max-width: 480px) {
 	.mainDetails {
-		padding: 5px 15px 15px;
+		padding: 25px 15px 15px;
 	}
 
 	section {
