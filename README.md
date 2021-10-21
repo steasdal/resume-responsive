@@ -42,5 +42,5 @@ the whole thing, really.
 
 -----
 
-Thanks for stopping by and taking a peek at my resume.  I hope you enjoyed perusing at it as much as I enjoyed getting it
+Thanks for stopping by and taking a peek at my resume repo.  I hope you enjoyed perusing at it as much as I enjoyed getting it
 up and running.  Please feel free to message me if you've got any feedback or suggestions.  Cheers!
