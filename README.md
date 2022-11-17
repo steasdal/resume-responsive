@@ -33,8 +33,7 @@ Once all that is done, we've got a fresh (and freshly tagged) docker image and w
 files in some private **gitops** repo.  The GitHub Actions files that drive this pipeline process can be found in the 
 [.github/workflows](https://github.com/steasdal/resume-responsive/tree/develop/.github/workflows) directory.
 
-What happens next?  Well, you see, I've got a Kubernetes cluster running on some Ubuntu VM's in [Proxmox](https://www.proxmox.com/en/) in my homelab.  
-On that cluster, I've got [ArgoCD](https://argoproj.github.io/argo-cd/) watching for changes
+What happens next?  Well, you see, I've got a Kubernetes cluster running on some Ubuntu VM's in [Proxmox](https://www.proxmox.com/en/) in my homelab.  On that cluster, I've got [ArgoCD](https://argoproj.github.io/argo-cd/) watching for changes
 to the afore mentioned **gitops** repo.  When ArgoCD sees that a new version of the docker container is available,
 it just automatically deploys it.  Boom.  Just like that.  I've even got a GitHub Webhook setup to let ArgoCD know
 that there are new changes it needs to know about.  Pretty sweet, right?  That's... well, that's about it.  That's 
