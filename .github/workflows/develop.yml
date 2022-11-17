@@ -22,10 +22,10 @@ jobs:
 
       # Checkout out this repo and ALSO the steasdal/gitops repo
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2.3.4
 
       - name: Checkout gitops repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2.3.4
         with:
           repository: steasdal/gitops
           path: gitops
