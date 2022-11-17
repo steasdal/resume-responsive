@@ -4,7 +4,7 @@ Hey, you've found my resume repo!  Welcome, friend, and allow me to regale you w
 -----
 
 Way, way back in the day, I used to throw together a resume in Microsoft Word just like most folks.  If I were feeling particularly sassy, 
-I might even save it off as a PDF before sending it out.  One day, when it came time to update the ol' piece of parchment, I figured that 
+I might even save it off as a PDF before sending it out.  One day, when it came time to update the ol' curriculum vitae, I figured that 
 it was probably time to come up with a better way.  These modern times call for modern solutions, right?  Perhaps I could come up with 
 something that puts to use a few of the skills that I've acquired over the years.  Let's see what we've got here.
 
@@ -33,8 +33,8 @@ Once all that is done, we've got a fresh (and freshly tagged) docker image and w
 files in some private **gitops** repo.  The GitHub Actions files that drive this pipeline process can be found in the 
 [.github/workflows](https://github.com/steasdal/resume-responsive/tree/develop/.github/workflows) directory.
 
-What happens next?  Well, you see, I've got a Kubernetes cluster running on some [ESXi](https://www.vmware.com/products/esxi-and-esx.html) 
-VM's at my house.  On that cluster, I've got [ArgoCD](https://argoproj.github.io/argo-cd/) watching for changes
+What happens next?  Well, you see, I've got a Kubernetes cluster running on some Ubuntu VM's in [Proxmox](https://www.proxmox.com/en/) in my homelab.  
+On that cluster, I've got [ArgoCD](https://argoproj.github.io/argo-cd/) watching for changes
 to the afore mentioned **gitops** repo.  When ArgoCD sees that a new version of the docker container is available,
 it just automatically deploys it.  Boom.  Just like that.  I've even got a GitHub Webhook setup to let ArgoCD know
 that there are new changes it needs to know about.  Pretty sweet, right?  That's... well, that's about it.  That's 

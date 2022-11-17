@@ -138,27 +138,27 @@
 
 				<article>
 					<h2>Kotlin Microservice</h2>
-					<p>A long term effort is underway to decompose a legacy monolithic Java/Spring app into more
-						manageable services.  As part of this effort, rewrote a piece of core functionality as a
-						Kotlin/Spring microservice which interacts with SQS queues and S3 buckets.  Upon successful
-						build, service is deployed to EKS via ArgoCD.
+					<p>Previously involved in a long term effort to decompose a legacy monolithic Java/Spring app into 
+						more manageable microservices.  As part of this effort, rewrote a piece of core functionality 
+						as a Kotlin/Spring microservice which interacted with SQS queues and S3 buckets.  Automated deployment
+						to EKS via ArgoCD.
 					</p>
 				</article>
 
 				<article>
 					<h2>Redis Transition</h2>
-					<p>Several services in current project utilize containerized Redis instances for caching.  Recently
-						completed a transition to AWS ElastiCache Redis instances.  Work involved creating CloudFormation
-						templates to create Subnet Groups, SNS Topics, and Redis ReplicationGroup clusters,
-						Modifying existing services to connect to new Redis cluster URLs over TLS, and cleaning
-						up remnants of previous Redis infrastructure.
+					<p>Several services in previous project utilized containerized Redis instances for caching.  
+						Completed a transition to AWS ElastiCache Redis instances.  Work involved creating 
+						CloudFormation templates to create Subnet Groups, SNS Topics, and Redis ReplicationGroup 
+						clusters, modifying existing services to connect to new Redis cluster URLs over TLS, and 
+						cleaning up remnants of previous Redis infrastructure.
 					</p>
 				</article>
 
 				<article>
 					<h2>ArgoCD Rollout</h2>
 					<p>Successfully rolled out <a href="https://github.com/argoproj/argo-cd">ArgoCD</a> to automate
-						deployment of all services owned by current group.  Deployed ArgoCD to dev cluster (managing
+						deployment of all services owned by previous group.  Deployed ArgoCD to dev cluster (managing
 						resources in both dev and prod clusters).  Separated Kustomize files into separate repository.
 						Updated all builds to modify Kustomize deployment files on build success.  Setup ArgoCD "Apps"
 						for each service in each environment.
