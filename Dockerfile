@@ -1,7 +1,6 @@
 FROM python:3.11.2-slim-buster
 LABEL org.opencontainers.image.authors="samuel.teasdale@gmail.com"
 
-COPY app.js .
 COPY /content ./content
 
 EXPOSE 8000
