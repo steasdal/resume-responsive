@@ -12,8 +12,8 @@ The resume itself is pretty simple.  I found a responsive resume template online
 It's just a bit of html and responsive CSS.  Nothing too flashy.  You'll find it all in the 
 [/content](https://github.com/steasdal/resume-responsive/tree/master/content) directory.
 
-The resume content is served up by a super simple NodeJS static web server.  Have a look at the
-[app.js](https://github.com/steasdal/resume-responsive/blob/master/app.js) file if you're interested.
+The resume is served up by a super simple Python web server.  See the **CMD** section 
+of the [Dockerfile](https://github.com/steasdal/resume-responsive/blob/master/Dockerfile).
 
 I'm a Docker guy so, of course, everything is dockerized.  Have a look at the
 [Dockerfile](https://github.com/steasdal/resume-responsive/blob/master/Dockerfile) for the dirty Docker details.
