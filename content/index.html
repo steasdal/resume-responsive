@@ -137,8 +137,18 @@
 			<div class="sectionContent">
 
 				<article>
+					<h2>Service Relocation: On-Premises to AWS</h2>
+					<p>
+						Relocated Java/Dropwizard microservice from on-premises data center to AWS.  Setup GitLab CI/CD
+						pipelines to deploy all required AWS infrastructure, build and test service, build Docker image
+						and push to ECR, and deploy service to ECS/Fargate with queue-based autoscaling.
+					</p>
+				</article>
+
+				<article>
 					<h2>Kotlin Microservice</h2>
-					<p>Previously involved in a long term effort to decompose a legacy monolithic Java/Spring app into 
+					<p>
+						Previously involved in a long term effort to decompose a legacy monolithic Java/Spring app into 
 						more manageable microservices.  As part of this effort, rewrote a piece of core functionality 
 						as a Kotlin/Spring microservice which interacted with SQS queues and S3 buckets.  Automated deployment
 						to EKS via ArgoCD.
@@ -147,7 +157,8 @@
 
 				<article>
 					<h2>Redis Transition</h2>
-					<p>Several services in previous project utilized containerized Redis instances for caching.  
+					<p>
+						Several services in previous project utilized containerized Redis instances for caching.  
 						Completed a transition to AWS ElastiCache Redis instances.  Work involved creating 
 						CloudFormation templates to create Subnet Groups, SNS Topics, and Redis ReplicationGroup 
 						clusters, modifying existing services to connect to new Redis cluster URLs over TLS, and 
@@ -157,17 +168,18 @@
 
 				<article>
 					<h2>ArgoCD Rollout</h2>
-					<p>Successfully rolled out <a href="https://github.com/argoproj/argo-cd">ArgoCD</a> to automate
-						deployment of all services owned by previous group.  Deployed ArgoCD to dev cluster (managing
-						resources in both dev and prod clusters).  Separated Kustomize files into separate repository.
-						Updated all builds to modify Kustomize deployment files on build success.  Setup ArgoCD "Apps"
-						for each service in each environment.
+					<p>
+						Successfully rolled out <a href="https://github.com/argoproj/argo-cd">ArgoCD</a> to automate
+						deployment of all services owned by previous group.  Deployed ArgoCD to dev cluster.  Separated 
+						Kustomize files into separate GitOps repository.  Updated all builds to modify Kustomize 
+						deployment files on successful builds.  Setup ArgoCD "Apps" for each service in each environment.
 					</p>
 				</article>
 
 				<article>
 					<h2>Microservice Rewrite</h2>
-					<p>Completely rewrote microservice responsible for communicating with Legacy 3rd party SOAP web
+					<p>
+						Completely rewrote microservice responsible for communicating with Legacy 3rd party SOAP web
 						service (new microservice communicates with REST web service via client .jar).  Work involved
 						extensive use of Java streams for extracting information from 3rd party client jar objects.
 					</p>
@@ -175,11 +187,12 @@
 
 				<article>
 					<h2>Grafana Dashboard</h2>
-					<p>Customer requested a method for viewing AWS SNS CloudWatch metrics for Email Sends, Deliveries,
-						Bounces, and Complaints.  A Grafana instance was deployed to a non-production Kubernetes cluster
-						with EFS for persistent storage, <a href="https://github.com/kubernetes-sigs/external-dns">External DNS</a>
+					<p>
+						Customer requested a method for viewing AWS SNS CloudWatch metrics for Email Sends, Deliveries,
+						Bounces, and Complaints.  A Grafana instance was deployed to a Kubernetes cluster with EFS for 
+						persistent storage, <a href="https://github.com/kubernetes-sigs/external-dns">External DNS</a>
 						to automatically update Route53 resources, and SSL certificates managed by AWS Certificate Manager.
-						Customer is extremely satified with the solution.
+						Customer was satisfied with the solution.
 					</p>
 				</article>
 
@@ -223,14 +236,13 @@
 
 			<div class="sectionContent">
 				<ul class="keySkills">
-					<li>EC2</li>
 					<li>EKS</li>
+					<li>ECS</li>
 					<li>CloudFormation</li>
 					<li>Lambdas</li>
 					<li>Simple Queue Service</li>
 					<li>API Gateway</li>
 					<li>DynamoDB</li>
-					<li>Transfer Server</li>
 				</ul>
 			</div>
 			<div class="clear"></div>
