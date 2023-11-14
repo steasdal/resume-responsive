@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resume
+  labels:
+    app: resume
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resume
+  template:
+    metadata:
+      labels:
+        app: resume
+    spec:
+      containers:
+      - name: resume
+        image: ghcr.io/steasdal/resume-responsive:v1.23
+        imagePullPolicy: Always
+        ports:
+        - name: resume-port
+          containerPort: 8000
+      imagePullSecrets:
+        - name: ghcrcredential
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: resume
+  labels:
+    app: resume
+spec:
+  ports:
+  - port: 80
+    targetPort: resume-port
+    protocol: TCP
+    name: resume-port
+  selector:
+    app: resume
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: resume-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: resume.teasdale.dev
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: resume
+                port:
+                  number: 80
