@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  push:
+    branches: [ develop ]
+
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      deployments: write
+      packages: write
+
+    steps:
+
+      # Checkout out this repo and ALSO the steasdal/gitops repo
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Checkout gitops repo
+        uses: actions/checkout@v3
+        with:
+          repository: steasdal/gitops
+          path: gitops
+          ref: main
+          token: ${{ secrets.GHCR_PAT }}
+
+      - name: Log in to the ghcr container repository
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha
+
+      - name: Set outputs
+        id: vars
+        run: echo "::set-output name=SHORT_SHA::$(git rev-parse --short HEAD)"
+
+      - name: Check outputs
+        run: echo "sha - ${{ steps.vars.outputs.SHORT_SHA }}"
+
+      # We're going to update the version placeholder in index.html with the git sha.  This'll
+      # never actually be committed to the git repo - it'll exist only in the docker container.
+      - name: update the version
+        run: sed -i -r "s|version:.*|version:\ ${{ steps.vars.outputs.SHORT_SHA }}</a>|" content/index.html
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      # Using a sed command with a "|" delimeter instead of the usual slash
+      # due to the fact that the replacement value itself has slashes in it.
+      - name: Update deploy/dev/deploy.yaml
+        run: sed -i -r "s|image:.*|image:\ ${{ steps.meta.outputs.tags }}|" gitops/resume-responsive/deploy/dev/deploy.yaml
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: Sam Teasdale
+          author_email: samuel.teasdale@gmail.com
+          branch: main
+          cwd: './gitops/'
+          message: 'Committing changes to deploy.yaml'
+          add: 'resume-responsive/deploy/dev/*'
