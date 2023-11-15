@@ -57,7 +57,7 @@ jobs:
         run: sed -i -r "s|image:.*|image:\ ghcr.io/steasdal/resume-responsive:${{ steps.get_version.outputs.VERSION }}|" deploy/prod/deploy.yaml
 
       - name: Commit changes
-        uses: EndBug/add-and-commit@v7
+        uses: EndBug/add-and-commit@v9
         with:
           author_name: Sam Teasdale
           author_email: samuel.teasdale@gmail.com
