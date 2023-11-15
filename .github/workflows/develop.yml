@@ -41,7 +41,7 @@ jobs:
 
       - name: Set outputs
         id: vars
-        run: echo "::set-output name=SHORT_SHA::$(git rev-parse --short HEAD)"
+        run: echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Check outputs
         run: echo "sha - ${{ steps.vars.outputs.SHORT_SHA }}"
